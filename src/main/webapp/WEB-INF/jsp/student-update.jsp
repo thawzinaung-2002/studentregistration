@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +11,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="test.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/test.css" />">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -44,12 +48,12 @@
         
         <button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
         
-            <div class="dropdown-container">
-          <a href="BUD003.html">Course Registration </a>
-          <a href="STU001.html">Student Registration </a>
-          <a href="USR003.html">Student Search </a>
+           <div class="dropdown-container">
+          <a href="./admin/courseregister">Course Registration </a>
+          <a href="./admin/studentregister">Student Registration </a>
+          <a href="./admin/studentlists">Student Search </a>
         </div>
-        <a href="USR003.html">Users Management</a>
+        <a href="./admin/userlists">Users Management</a>
       </div>
       <div class="main_contents">
     <div id="sub_content">
