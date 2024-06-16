@@ -34,15 +34,11 @@
 		<div class="container">
 			<div class=row>
 				<div class="col-md-5 ">
-					<a href="MNU001.html"><h3>Student Registration</h3></a>
+					<a href="../home"><h3>Student Registration</h3></a>
 				</div>
-				<div class="col-md-6">
-					<p>User: USR001 Harry</p>
-					<p>Current Date : YY.MM.DD</p>
-				</div>
-				<div class="col-md-1">
-					<input type="button" class="btn-basic" id="lgnout-button"
-						value="Log Out" onclick="location.href='LGN001.html'">
+				<%@ include file="header.jsp"%>
+				<div class="col-md-2">
+					<a class="btn btn-danger text-dark" href="../">Log out</a>
 				</div>
 			</div>
 		</div>
@@ -52,40 +48,23 @@
 	<div class="container">
 		<div class="sidenav">
 
-			<button class="dropdown-btn">
-				Class Management <i class="fa fa-caret-down"></i>
-			</button>
-
-			<div class="dropdown-container">
-				<a href="BUD003.html">Course Registration </a> <a href="STU001.html">Student
-					Registration </a> <a href="STU003.html">Student Search </a>
-			</div>
-			<a href="USR003.html">Users Management</a>
+			 <button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
+        
+           <div class="dropdown-container">
+          <a href="./courseregister">Course Registration </a>
+          <a href="./studentregister">Student Registration </a>
+          <a href="./studentlists">Student Search </a>
+        </div>
+        <a href="./userlists">Users Management</a>
 		</div>
 		<div class="main_contents">
 			<div id="sub_content">
 				<form class="row g-3 mt-3 ms-2">
 					<div class="col-auto">
-						<label for="staticEmail2" class="visually-hidden">User Id</label>
-						<input type="text" class="form-control" id="staticEmail2"
-							placeholder="User ID">
-					</div>
-					<div class="col-auto">
-						<label for="inputPassword2" class="visually-hidden">User
-							Name</label> <input type="text" class="form-control" id="inputPassword2"
-							placeholder="User Name">
-					</div>
-
-					<div class="col-auto">
-						<button type="submit" class="btn btn-primary mb-3">Search</button>
-					</div>
-					<div class="col-auto">
-						<button type="button" class="btn btn-secondary "
-							onclick="location.href = 'USR001.html';">Add</button>
-
-					</div>
-					<div class="col-auto">
-						<button type="submit" class="btn btn-danger mb-3">Reset</button>
+					<a href="./adduser">
+						<button type="button" class="btn btn-secondary">Add User</button>
+					
+					</a>
 					</div>
 				</form>
 
@@ -100,56 +79,25 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-
-
-							<td>USR001</td>
-							<td>Harry</td>
-
-							<td>
-								<button type="button" class="btn btn-success  "
-									onclick="location.href = 'USR002.html';">Update</button>
-							</td>
-							<td><button type="submit" class="btn btn-secondary mb-3"
-									data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></td>
-
-						</tr>
-
-						<tr>
-
-
-							<td>USR002</td>
-							<td>John</td>
-
-							<td>
-
-								<button type="button" class="btn btn-success  "
-									onclick="location.href = 'USR002.html';">Update</button>
+					<c:forEach var="admin" items="${admins }">
+					<tr>
+						<td>${admin.id }</td>
+						<td>${admin.name }</td>
+						<td>
+						<a href="./update/user/${admin.id }">
+								<button type="button" class="btn btn-success">Update</button>
+						</a>
 							</td>
 							<td>
-								<button type="submit" class="btn btn-secondary mb-3"
-									data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+								<a href="./delete/user/${admin.id }">
+								<button type="submit" class="btn btn-secondary mb-3">Delete</button>	
+								</a>
 							</td>
-
-						</tr>
-
-						<tr>
-
-
-							<td>USR003</td>
-							<td>Bryce</td>
-
-							<td>
-								<button type="button" class="btn btn-success"
-									onclick="location.href = 'USR002.html';">Update</button>
-							</td>
-							<td>
-								<button type="submit" class="btn btn-secondary mb-3"
-									data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
-							</td>
-
-						</tr>
-
+					
+					</tr>
+						
+					</c:forEach>
+						
 					</tbody>
 				</table>
 

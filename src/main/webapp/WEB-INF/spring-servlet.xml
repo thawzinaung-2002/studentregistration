@@ -16,7 +16,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 	
 	<mvc:annotation-driven />
 	
-	<bean id="userRepo" class="spring.service.AdminService"></bean>
+	<bean id="adminService" class="spring.service.AdminService"></bean>
+	
+	<bean id="courseService" class="spring.service.CourseService"></bean>
+	
+	<bean id="studentService" class="spring.service.StudentService"></bean>
 	
 	<mvc:resources mapping="/resources/**" location="/resources/"  
 	cache-period="31556926"/>
@@ -30,9 +34,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		<property name="basename" value="messages" />
 	</bean>
 	
-	<!-- <bean
+	<bean
 id="multipartResolver"
 class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-/> -->
+/>
 
 </beans>

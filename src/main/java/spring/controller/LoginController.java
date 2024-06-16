@@ -22,7 +22,7 @@ import spring.service.AdminService;
 public class LoginController {
 
 	@Autowired
-	AdminService service;
+	AdminService adminService;
 	
 	@Autowired
 	ModelMapper mapper;
@@ -40,6 +40,12 @@ public class LoginController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/home")
+	public String doWelcome()
+	{
+		return "welcome";
+	}
+	
 	@PostMapping("/dologin")
 	public String doLogin(@ModelAttribute("user")@Valid UserBean user, BindingResult br, RedirectAttributes model, HttpSession session)
 	{
@@ -50,15 +56,17 @@ public class LoginController {
 		else
 		{
 			UserDTO userDto = mapper.map(user, UserDTO.class);
-			boolean emailResult = service.checkEmail(userDto.getEmail());
+			boolean emailResult = adminService.checkEmail(userDto.getEmail());
 			if(emailResult)
 			{
-				UserDTO dbAdmin=service.getUser(userDto);
+				UserDTO dbAdmin=adminService.getUser(userDto);
 				if(dbAdmin != null)
 				{
 					AdminBean adminBean = mapper.map(dbAdmin, AdminBean.class);
 					session.setAttribute("loginObj", adminBean);
-					return "welcome";
+					model.addFlashAttribute("msg", "Welcome Back...! <br><br>\n"
+							+ "        Enjoy this project and try your best in your own!");
+					return "redirect:home";
 				}
 				else
 				{

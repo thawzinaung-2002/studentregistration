@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
     
 <!DOCTYPE html>
@@ -29,15 +29,12 @@
     <div class="container">
         <div class=row>        
             <div class="col-md-5 ">
-        <a href="MNU001.html"><h3>Student Registration</h3></a>
+        <a href="../welcome"><h3>Student Registration</h3></a>
     </div>  
-    <div class="col-md-6">
-        <p>User: USR001 Harry</p>
-        <p>Current Date : YY.MM.DD </p>
-    </div>  
-    <div class="col-md-1" >
-        <input type="button" class="btn-basic" id="lgnout-button" value="Log Out" onclick="location.href='LGN001.html'">
-    </div>        
+    <%@ include file="header.jsp"%>
+				<div class="col-md-2">
+					<a class="btn btn-danger text-dark" href="../">Log out</a>
+				</div>       
 </div>
 </div>
 
@@ -49,39 +46,19 @@
         <button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
         
             <div class="dropdown-container">
-          <a href="./admin/courseregister">Course Registration </a>
-          <a href="./admin/studentregister">Student Registration </a>
-          <a href="./admin/studentlists">Student Search </a>
+          <a href="./courseregister">Course Registration </a>
+          <a href="./studentregister">Student Registration </a>
+          <a href="./studentlists">Student Search </a>
         </div>
-        <a href="./admin/userlists">Users Management</a>
+        <a href="./userlists">Users Management</a>
       </div>
       <div class="main_contents">
     <div id="sub_content">
-      <form class="row g-3 mt-3 ms-2">
-        <div class="col-auto">
-          <label for="staticEmail2" class="visually-hidden">studentID</label>
-          <input type="text"  class="form-control" id="staticEmail2" placeholder="Student ID">
-        </div>
-        <div class="col-auto">
-          <label for="inputPassword2" class="visually-hidden">studentName</label>
-          <input type="text" class="form-control" id="inputPassword2" placeholder="Student Name">
-        </div>
-        <div class="col-auto">
-            <label for="inputPassword2" class="visually-hidden">Course</label>
-            <input type="text" class="form-control" id="inputPassword2" placeholder="Course">
-          </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-success mb-3">Search</button>
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-secondary mb-3">Reset</button>
-        </div>
-      </form>
+      
 <div>
       <table class="table table-striped" id="stduentTable">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Student ID</th>
             <th scope="col">Name</th>
             <th scope="col">Course Name</th>
@@ -89,34 +66,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>STU0001</td>
-            <td>Thu</td>
-            <td>Java</td>
-            <td>
-              <a href="STU002.html"><button type="submit" class="btn btn-secondary mb-2">See More</button></a> 
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>STU0001</td>
-            <td>Thu</td>
-            <td>java</td>
-            <td>
-              <a href="STU002.html"><button type="submit" class="btn btn-secondary mb-2">See More</button></a> 
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>STU0001</td>
-            <td>Thu</td>
-            <td>Java</td>
-            <td>
-              <a href="STU002.html"><button type="submit" class="btn btn-secondary mb-2">See More</button></a>
-              <!-- <a href="STU002.html" class="text-decoration-none">See more</a> -->
-            </td>
-          </tr>
+        <c:forEach var="student" items="${students }">
+        	<tr>
+        		<th scope="row">${student.id }</th>
+        		<td>${student.name }</td>
+        		<td>
+					${student.courses}
+        		</td>
+        		<td>
+              		<a href="./student/${student.id }"><button type="submit" class="btn btn-secondary mb-2">See More</button></a> 
+            	</td>
+        	</tr>
+        </c:forEach>
         </tbody>
       </table>
     </div>

@@ -29,15 +29,12 @@
         <div class="container">
             <div class=row>        
                 <div class="col-md-5 ">
-            <a href="MNU001.html"><h3>Student Registration</h3></a>
+            <a href="../../../home"><h3>Student Registration</h3></a>
         </div>  
-        <div class="col-md-6">
-            <p>User: USR001 Harry</p>
-            <p>Current Date : YY.MM.DD </p>
-        </div>  
-        <div class="col-md-1" >
-            <input type="button" class="btn-basic" id="lgnout-button" value="Log Out" onclick="location.href='LGN001.html'">
-        </div>        
+       <%@ include file="header.jsp"%>
+				<div class="col-md-2">
+					<a class="btn btn-danger text-dark" href="../../../">Log out</a>
+				</div>       
     </div>
 </div>
 
@@ -49,84 +46,87 @@
         <button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
         
             <div class="dropdown-container">
-          <a href="./admin/courseregister">Course Registration </a>
-          <a href="./admin/studentregister">Student Registration </a>
-          <a href="./admin/studentlists">Student Search </a>
+          <a href="../../../courseregister">Course Registration </a>
+          <a href="../../../admin/studentregister">Student Registration </a>
+          <a href="../../../admin/studentlists">Student Search </a>
         </div>
-        <a href="./admin/userlists">Users Management</a>
+        <a href="../../../admin/userlists">Users Management</a>
       </div>
       <div class="main_contents">
     <div id="sub_content">
-        <form">
-
-        <h2 class="col-md-6 offset-md-2 mb-5 mt-4">User Update</h2>
-        <div class="row mb-4">
-            <div class="col-md-2"></div>
-            <label for="email" class="col-md-2 col-form-label">Email</label>
-            <div class="col-md-4">
-                <input type="email" class="form-control" id="email" value="harry@gmail.com">
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-md-2"></div>
-            <label for="Passowrd" class="col-md-2 col-form-label">Passowrd</label>
-            <div class="col-md-4">
-                <input type="password" class="form-control" id="name" value="09090293">
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-md-2"></div>
-            <label for="confirmPassword" class="col-md-2 col-form-label">Confirm Passowrd</label>
-            <div class="col-md-4">
-                <input type="password" class="form-control" id="confirmPassword" value="09090293">
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-md-2"></div>
-            <label for="userRole" class="col-md-2 col-form-label">User Role</label>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Education" id="userRole">
-                    <option selected>Admin</option>
-                    <option value="1">User</option>
-
-
-                </select>
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-md-4"></div>
-
-            <div class="col-md-6">
-               
-
-                <button type="submit" class="btn btn-success col-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">User Update</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                               
-                               <h5 style="color: rgb(127, 209, 131);">Succesfully Updated !</h5>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success col-md-2" data-bs-dismiss="modal">Ok</button>
-                               
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <button type="button" class="btn btn-secondary col-md-2 " onclick="location.href = 'USR003.html';">
-                Back
-            </button>
-    
-
-        </div>
-        </form>
+        <form:form action="../../update/user/doupdate" modelAttribute="admin" method="post">
+				<h2 class="col-md-6 offset-md-2 mb-5 mt-4">User Update</h2>
+				<div class="col-12">
+					<c:if test="${msg!=null }">
+            		<p class="text-center">${msg}</p>
+            	</c:if>
+				</div>
+				<form:hidden path="id" />
+				<div class="row mb-4">
+					<div class="col-md-2"></div>
+					<form:label for="name" class="col-md-2 col-form-label" path="name">Name</form:label>
+					<div class="col-md-4">
+						<form:input type="text" class="form-control" id="name" path="name" />
+					</div>
+					<div class="col-md-4">
+						<form:errors path="name" cssClass="error" />
+					</div>
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-2"></div>
+					<form:label for="email" class="col-md-2 col-form-label" path="email">Email</form:label>
+					<div class="col-md-4">
+						<form:input type="email" class="form-control" id="email" path="email"/>
+					</div>
+					<div class="col-md-4">
+						<form:errors path="email" cssClass="error" />
+					</div>
+					
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-2"></div>
+					<form:label for="password" class="col-md-2 col-form-label" path="password">Password</form:label>
+					<div class="col-md-4">
+						<form:input type="password" class="form-control" id="password" path="password"/>
+					</div>
+					<div class="col-md-4">
+						<form:errors path="password" cssClass="error" />
+					</div>
+					
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-2"></div>
+					<form:label for="confirmPassword" class="col-md-2 col-form-label" path="confirmPassword">Confirm
+						Password</form:label>
+					<div class="col-md-4">
+						<form:input type="password" class="form-control" id="confirmPassword" path="confirmPassword" />
+					</div>
+					<div class="col-md-4">
+						<form:errors path="confirmPassword" cssClass="error" />
+					</div>
+					
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-2"></div>
+					<form:label for="userRole" class="col-md-2 col-form-label" path="role">User
+						Role</form:label>
+					<div class="col-md-4">
+						<form:select class="form-select" aria-label="Education" id="userRole" path="role">
+							<option value="Admin" selected>Admin</option>
+							<option value="User">User</option>
+						</form:select>
+					</div>
+				</div>
+				<div class="row mb-4">
+					<div class="col-md-4"></div>
+					<div class="col-md-8">
+						<button type="submit" class="btn btn-success text-dark col-md-2">Update</button>
+						<a href="../../userlists">
+							<button type="button" class="btn btn-secondary text-dark col-md-2">Cancel</button>
+						</a>
+					</div>
+				</div>
+			</form:form>
     </div>
 </div>
 </div>
