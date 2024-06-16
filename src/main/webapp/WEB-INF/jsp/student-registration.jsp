@@ -25,7 +25,7 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 
-<title>Course Registration</title>
+<title>Student Registration</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
 				</div>
 				<%@ include file="header.jsp"%>
 				<div class="col-md-2">
-					<a class="btn btn-danger text-dark" href="../">Log out</a>
+					<a class="btn btn-danger text-dark" href="../../">Log out</a>
 				</div>
 			</div>
 		</div>
@@ -54,15 +54,15 @@
 			</button>
 
 			<div class="dropdown-container">
-				<a href="./courseregister">Course Registration </a> <a
-					href="./studentregister">Student Registration </a> <a
-					href="./studentlists">Student Search </a>
+				<a href="../course/register">Course Registration </a> <a
+					href="./register">Student Registration </a> <a
+					href="./lists">Student Search </a>
 			</div>
-			<a href="./userlists">Users Management</a>
+			<a href="../lists">Users Management</a>
 		</div>
 		<div class="main_contents">
 			<div id="sub_content">
-				<form:form action="dostudentregister" modelAttribute="student"
+				<form:form action="doregister" modelAttribute="student"
 					method="post" enctype="multipart/form-data">
 
 					<h2 class="col-md-6 offset-md-2 mb-5 mt-4">Student
@@ -133,6 +133,7 @@
 						<div class="col-md-4">
 							<input type="file" class="form-control" id="image" name="photo">
 						</div>
+						<p>${emptyErr}</p>
 					</div>
 
 					<div class="row mb-4">

@@ -45,7 +45,7 @@
 				</div>
 				<%@ include file="header.jsp" %>
 				<div class="col-md-2" >
-            <a class="btn btn-danger text-dark" href="../">Log out</a>
+            <a class="btn btn-danger text-dark" href="../../">Log out</a>
         </div>
 			</div>
 		</div>
@@ -58,15 +58,15 @@
 			<button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
         
             <div class="dropdown-container">
-          <a href="./courseregister">Course Registration </a>
-          <a href="./studentregister">Student Registration </a>
-          <a href="./studentlists">Student Search </a>
+          <a href="./register">Course Registration </a>
+          <a href="../student/register">Student Registration </a>
+          <a href="../student/lists">Student Search </a>
         </div>
-        <a href="./userlists">Users Management</a>
+        <a href="../lists">Users Management</a>
 		</div>
 		<div class="main_contents">
 			<div id="sub_content">
-				<form:form action="addCourse" modelAttribute="course" method="post">
+				<form:form action="add" modelAttribute="course" method="post">
 					<h2 class="col-md-6 offset-md-2 mb-5 mt-4">Course Registration</h2>
 					<div class="row mb-4">
 						<div class="col-md-1"></div>

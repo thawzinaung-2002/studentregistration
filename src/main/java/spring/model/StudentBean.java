@@ -1,7 +1,5 @@
 package spring.model;
 
-
-
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;

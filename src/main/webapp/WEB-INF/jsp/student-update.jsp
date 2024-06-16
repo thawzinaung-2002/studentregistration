@@ -21,7 +21,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     
-        <title>Course Registration</title>
+        <title>Update</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         <div class="container">
             <div class=row>        
                 <div class="col-md-5 ">
-            <a href="../../../home"><h3>Student Registration</h3></a>
+            <a href="../../home"><h3>Student Registration</h3></a>
         </div>  
         <%@ include file="header.jsp"%>
 				<div class="col-md-2">
@@ -46,18 +46,18 @@
         <button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
         
            <div class="dropdown-container">
-          <a href="../courseregister">Course Registration </a>
-          <a href="../../../admin/studentregister">Student Registration </a>
-          <a href="../../../admin/studentlists">Student Search </a>
+          <a href="../../course/register">Course Registration </a>
+          <a href="../register">Student Registration </a>
+          <a href="../lists">Student Search </a>
         </div>
-        <a href="../../../admin/userlists">Users Management</a>
+        <a href="../../../admin/lists">Users Management</a>
       </div>
       <div class="main_contents">
     <div id="sub_content">
     	<c:if test="${msg!=null }">
     		${msg }
     	</c:if>
-        <form:form action="../doupdate" modelAttribute="student"
+        <form:form action="doupdate" modelAttribute="student"
 					method="post" enctype="multipart/form-data">
 					
 					
@@ -129,7 +129,11 @@
 						<label for="image" class="col-md-2 col-form-label">Photo</label>
 						<div class="col-md-4">
 							<input type="file" class="form-control" id="image" name="photo">
+							<p>
+						<c:out value="${emptyErr}" />
+						</p>
 						</div>
+						
 					</div>
 
 					<div class="row mb-4">
@@ -138,7 +142,7 @@
 						<div class="col-md-4">
 						<input type="submit" class="btn btn-success" value="Update" />
 						
-						<a href="../../../admin/studentlists">
+						<a href="../lists">
                         <button type="button" class="btn btn-secondary">
                             <span>Cancel</span>
                         </button>

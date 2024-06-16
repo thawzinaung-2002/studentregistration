@@ -19,7 +19,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     
-        <title>Top Menu MNU001</title>
+        <title>Admin Home</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
         </div>  
         <%@ include file="header.jsp" %> 
         <div class="col-md-2" >
-            <a class="btn btn-danger text-dark" href="./">Log out</a>
+            <a class="btn btn-danger text-dark" href="../">Log out</a>
         </div>        
     </div>
 </div>
@@ -48,11 +48,11 @@
         <button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
         
             <div class="dropdown-container">
-          <a href="./admin/courseregister">Course Registration </a>
-          <a href="./admin/studentregister">Student Registration </a>
-          <a href="./admin/studentlists">Student Search </a>
+          <a href="./course/register">Course Registration </a>
+          <a href="./student/register">Student Registration </a>
+          <a href="./student/lists">Student Search </a>
         </div>
-        <a href="./admin/userlists">Users Management</a>
+        <a href="./lists">Users Management</a>
       </div>
     <!-- <div id="content">
     <form">

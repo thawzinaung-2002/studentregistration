@@ -40,12 +40,6 @@ public class LoginController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/home")
-	public String doWelcome()
-	{
-		return "welcome";
-	}
-	
 	@PostMapping("/dologin")
 	public String doLogin(@ModelAttribute("user")@Valid UserBean user, BindingResult br, RedirectAttributes model, HttpSession session)
 	{
@@ -66,7 +60,7 @@ public class LoginController {
 					session.setAttribute("loginObj", adminBean);
 					model.addFlashAttribute("msg", "Welcome Back...! <br><br>\n"
 							+ "        Enjoy this project and try your best in your own!");
-					return "redirect:home";
+					return "redirect:/admin/home";
 				}
 				else
 				{

@@ -30,7 +30,7 @@
 <style>
 p
 {
-	color: red;
+	
 	padding: 0;
 	margin-top: 0;
 	font-weight: bold;
@@ -121,7 +121,7 @@ p
 			<div class="row">
 					<div class="col-md-4"></div>
 					<div class="col-md-8">
-						<p class="message ">Already registered? <a href="../" class="text-warning">Login</a></p>
+						<p class="message ">Already registered? <a href="../" class="">Login</a></p>
 					</div>
 				</div>
 		</div>

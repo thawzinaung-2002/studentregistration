@@ -21,7 +21,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     
-        <title>Course Registration</title>
+        <title>Students</title>
 </head>
 
 <body>
@@ -29,11 +29,11 @@
     <div class="container">
         <div class=row>        
             <div class="col-md-5 ">
-        <a href="../welcome"><h3>Student Registration</h3></a>
+        <a href="../home"><h3>Student Registration</h3></a>
     </div>  
     <%@ include file="header.jsp"%>
 				<div class="col-md-2">
-					<a class="btn btn-danger text-dark" href="../">Log out</a>
+					<a class="btn btn-danger text-dark" href="../../">Log out</a>
 				</div>       
 </div>
 </div>
@@ -74,7 +74,7 @@
 					${student.courses}
         		</td>
         		<td>
-              		<a href="./student/${student.id }"><button type="submit" class="btn btn-secondary mb-2">See More</button></a> 
+              		<a href="./${student.id }"><button type="submit" class="btn btn-secondary mb-2">See More</button></a> 
             	</td>
         	</tr>
         </c:forEach>

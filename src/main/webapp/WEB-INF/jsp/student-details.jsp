@@ -20,7 +20,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     
-        <title>Course Registration</title>
+        <title>Student Details</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <div class="container">
             <div class=row>        
                 <div class="col-md-5 ">
-            <a href="../../home"><h3>Student Registration</h3></a>
+            <a href="../home"><h3>Student Registration</h3></a>
         </div>  
          <%@ include file="header.jsp"%>
 				<div class="col-md-2">
@@ -130,7 +130,7 @@
 							<input type="submit" class="btn btn-danger" value="Update" />
 						</a>
 						
-						<a href="../delete/student/${student.id }">
+						<a href="./delete/${student.id }">
 							<input type="button" class="btn btn-success" value="Delete" />
 						</a>
 						</div>
