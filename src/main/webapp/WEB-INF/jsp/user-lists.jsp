@@ -26,7 +26,7 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 
-<title>Course Registration</title>
+<title>User Registration</title>
 </head>
 
 <body>
@@ -34,11 +34,11 @@
 		<div class="container">
 			<div class=row>
 				<div class="col-md-5 ">
-					<a href="../home"><h3>Student Registration</h3></a>
+					<a href="./home"><h3>Student Registration</h3></a>
 				</div>
 				<%@ include file="header.jsp"%>
 				<div class="col-md-2">
-					<a class="btn btn-danger text-dark" href="../">Log out</a>
+					<a class="btn btn-danger text-dark" href="../logout">Log out</a>
 				</div>
 			</div>
 		</div>
@@ -51,17 +51,17 @@
 			 <button class="dropdown-btn" > Class Management <i class="fa fa-caret-down"></i></button>
         
            <div class="dropdown-container">
-          <a href="./courseregister">Course Registration </a>
-          <a href="./studentregister">Student Registration </a>
-          <a href="./studentlists">Student Search </a>
+          <a href="./course/register">Course Registration </a>
+          <a href="./student/register">Student Registration </a>
+          <a href="./student/lists">Student Search </a>
         </div>
-        <a href="./userlists">Users Management</a>
+        <a href="./lists">Users Management</a>
 		</div>
 		<div class="main_contents">
 			<div id="sub_content">
 				<form class="row g-3 mt-3 ms-2">
 					<div class="col-auto">
-					<a href="./adduser">
+					<a href="./register">
 						<button type="button" class="btn btn-secondary">Add User</button>
 					
 					</a>
@@ -84,12 +84,12 @@
 						<td>${admin.id }</td>
 						<td>${admin.name }</td>
 						<td>
-						<a href="./update/user/${admin.id }">
+						<a href="./update/${admin.id }">
 								<button type="button" class="btn btn-success">Update</button>
 						</a>
 							</td>
 							<td>
-								<a href="./delete/user/${admin.id }">
+								<a href="./delete/${admin.id }">
 								<button type="submit" class="btn btn-secondary mb-3">Delete</button>	
 								</a>
 							</td>

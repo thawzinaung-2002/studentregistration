@@ -55,11 +55,6 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping("/register")
-	public ModelAndView goRegister() {
-		return new ModelAndView("user-registration", "admin", new AdminBean());
-	}
-	
 	@GetMapping("/lists")
 	public String goUserLists(ModelMap model)
 	{
@@ -67,8 +62,6 @@ public class AdminController {
 		model.addAttribute("admins", admins);
 		return "user-lists";
 	}
-	
-	
 	
 
 	@PostMapping("/doregister")
@@ -103,15 +96,10 @@ public class AdminController {
 		}
 	}
 	
-	
-	
-	
-	@GetMapping("/adduser")
-	public ModelAndView showAddUser()
-	{
+	@GetMapping("/register")
+	public ModelAndView goRegister() {
 		return new ModelAndView("user-add", "admin", new AdminBean());
 	}
-	
 	
 	@PostMapping("/adduser")
 	public String doUserAdd(@ModelAttribute("admin")@Valid AdminBean admin, BindingResult br, RedirectAttributes model)
@@ -145,7 +133,7 @@ public class AdminController {
 		}
 	}
 	
-	@GetMapping("/update/user/{id}")
+	@GetMapping("/update/{id}")
 	public String showEditUser(@PathVariable("id")int id, ModelMap model)
 	{
 		UserDTO dbRs = adminService.getUserById(id);
@@ -154,25 +142,24 @@ public class AdminController {
 		return "user-update";
 	}
 	
-	@PostMapping("/update/user/doupdate")
+	@PostMapping("/update/doupdate")
 	public String doUpdate(@ModelAttribute("admin")@Valid AdminBean admin,BindingResult br, RedirectAttributes model)
 	{
 		if(br.hasErrors())
 		{
-			return "redirect:./"+admin.getId();
+			return "redirect:../update/"+admin.getId();
 		}
-		AdminBean adminBean = admin;
-		UserDTO userDto = mapper.map(adminBean, UserDTO.class);
+		UserDTO userDto = mapper.map(admin, UserDTO.class);
 		int dbRs = adminService.updateUser(userDto);
 		model.addFlashAttribute("msg", "User has been updated");
-		return "redirect:../../../home";
+		return "redirect:../home";
 	}
 	
-	@GetMapping("/delete/user/{id}")
+	@GetMapping("/delete/{id}")
 	public String deleteUser(@PathVariable("id")int id)
 	{
-		adminService.deleteById(id);
-		return "redirect:./../../userlists";
+//		adminService.deleteById(id);
+		return "redirect:../lists";
 	}
 	
 }

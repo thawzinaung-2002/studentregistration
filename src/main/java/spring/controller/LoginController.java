@@ -78,4 +78,48 @@ public class LoginController {
 		
 	}
 	
+	@GetMapping("/register")
+	public ModelAndView goRegister() {
+		return new ModelAndView("user-registration", "admin", new AdminBean());
+	}
+	
+	
+	@PostMapping("/adduser")
+	public String doUserAdd(@ModelAttribute("admin")@Valid AdminBean admin, BindingResult br, RedirectAttributes model)
+	{
+		if(br.hasErrors())
+		{
+			return "user-registration";
+		}
+		else
+		{
+			if(!admin.getPassword().equals(admin.getConfirmPassword()))
+			{
+				model.addFlashAttribute("msg", "Passwords must be match!");
+				return "redirect:adduser";
+			}
+			else
+			{
+				UserDTO adminDto = mapper.map(admin, UserDTO.class);
+				int dbAdd = adminService.addUser(adminDto);
+				if(dbAdd > 0)
+				{
+					model.addFlashAttribute("msg", "User has been added!");
+					return "redirect:./";
+				}
+				else
+				{
+					model.addFlashAttribute("msg", "Registration Failed! Please Register Again!");
+					return "redirect:adduser";
+				}
+			}
+		}
+	}
+	
+	@GetMapping("/logout")
+	public String logOut()
+	{
+		return "redirect:/";
+	}
+	
 }

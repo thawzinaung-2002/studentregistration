@@ -36,7 +36,7 @@
         </div>  
         <%@ include file="header.jsp" %> 
         <div class="col-md-2" >
-            <a class="btn btn-danger text-dark" href="../">Log out</a>
+            <a class="btn btn-danger text-dark" href="../logout">Log out</a>
         </div>        
     </div>
 </div>

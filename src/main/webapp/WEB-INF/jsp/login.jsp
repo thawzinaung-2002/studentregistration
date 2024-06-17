@@ -43,7 +43,7 @@ p
           </p>
        
           <button>login</button>
-          <p class="message">Not registered? <a href="./admin/register">Create an account</a></p>
+          <p class="message">Not registered? <a href="register">Create an account</a></p>
         </form:form>
       </div>
     </div>

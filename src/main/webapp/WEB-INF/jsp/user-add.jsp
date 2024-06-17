@@ -115,7 +115,7 @@ p
 					<div class="col-md-4"></div>
 					<div class="col-md-8">
 						<button type="submit" class="btn btn-info text-dark col-md-2">Add</button>
-						<a href="userlists">
+						<a href="./lists">
 							<button type="button" class="btn btn-info text-dark col-md-2">Cancel</button>
 						</a>
 					</div>

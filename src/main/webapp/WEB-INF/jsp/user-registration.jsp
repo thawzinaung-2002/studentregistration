@@ -48,7 +48,7 @@ p
 
 	<div class="container-fluid">
 		<div class="col-12">
-			<form:form action="doregister" modelAttribute="admin" method="post">
+			<form:form action="adduser" modelAttribute="admin" method="post">
 				<h2 class="col-md-6 offset-md-2 mb-5 mt-4">User Registration</h2>
 				<div class="col-12">
 					<c:if test="${msg!=null }">
@@ -121,7 +121,7 @@ p
 			<div class="row">
 					<div class="col-md-4"></div>
 					<div class="col-md-8">
-						<p class="message ">Already registered? <a href="../" class="">Login</a></p>
+						<p class="message ">Already registered? <a href="./" class="">Login</a></p>
 					</div>
 				</div>
 		</div>
